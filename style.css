@@ -80,4 +80,5 @@ div#secondaryDiv {
 	border-right: 25px solid transparent;
 	height: 0;
 	width: 125px;
+    transform: rotate(45deg);
 }
