@@ -72,13 +72,3 @@ div#secondaryDiv {
     margin-right: auto;
     text-align: center;
 }
-
-
-.trapezoid {
-	border-bottom: 50px solid #555;
-	border-left: 25px solid transparent;
-	border-right: 25px solid transparent;
-	height: 0;
-	width: 125px;
-    transform: rotate(45deg);
-}
