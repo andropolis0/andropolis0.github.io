@@ -6,8 +6,8 @@ body {
     background-repeat: no-repeat;
     background-position-x: right, center;
     background-size: 250px, cover;
-    background-color: rgba(0, 4, 255, 0.4);
-    background-blend-mode: multiply;
+    background-color: rgba(35, 20, 240, 0.35);
+    background-blend-mode: normal, multiply;
     margin: 0;
 }
 img#logo {
@@ -21,19 +21,46 @@ div#mainDiv {
     display: block;
     margin: 10px;
 }
-div#bgSourceDiv {
+
+
+
+div#musicPlayerDiv {
     background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    position: fixed;
+    width: 33px;
+    height: 33px;
+    bottom: 48px;
+    left: 10px;
+    cursor: pointer;
+}
+
+
+
+
+div#bgSource {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    position: fixed;
     bottom: 10px;
     left: 10px;
-    position: fixed;
-    border-radius: 8px;
-    padding: 0px;
+    padding: 8px;
 }
-h6#bgSource {
-    color: rgb(230, 223, 214);
+div#linkImg {
+    background-image: url("linkIcon.png");
+    background-size: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+    float: left;
+    width: 17px;
+    height: 17px;
+    margin-right: 6px;
+}
+div#link {
+    color: lightslategray;
     font-family: 'Segoe UI', Tahoma, sans-serif;
-    font-size: 13px;
     font-weight: 550;
-    margin: 10px;
+    font-size: 13px;
+    float: right;
+    cursor: default;
 }
-a { color: rgb(230, 223, 214); }
