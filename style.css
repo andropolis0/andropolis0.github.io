@@ -28,11 +28,18 @@ div#musicPlayerDiv {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 8px;
     position: fixed;
-    width: 33px;
-    height: 33px;
+    width: 36px;
+    height: 36px;
     bottom: 48px;
     left: 10px;
     cursor: pointer;
+    background-image: url("musicIcon.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 26px;
+
+
+	transition:300ms linear;
 }
 
 
