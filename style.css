@@ -34,12 +34,13 @@ div#musicPlayerDiv {
     left: 10px;
     cursor: pointer;
     background-image: url("musicIcon.png");
+    background-position-x: 5px;
+    background-position-y: 5px;
     background-repeat: no-repeat;
-    background-position: center;
     background-size: 26px;
 
 
-	transition:300ms linear;
+	transition:500ms linear;
 }
 
 
