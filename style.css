@@ -1,37 +1,73 @@
 body {
-    background-color: rgb(34, 34, 34);
-    margin: 0;
+    margin: 0;    
+    background-color: rgb(35, 35, 35);
+    background-image: url("backgroundImage.png");
 }
 div#headDiv {
-    background-color: rgb(46, 46, 46);
+    display: flex;  
     width: 100%;
-    height: calc(100vh * 0.06);
-    box-shadow: 0px 1px rgb(65, 65, 65);
-    display: flex;
+    height: 54px;
+    background-color: rgb(45, 45, 45);
+}
+div#headDivShadow {
+    position: absolute;
+    top: 54px;
+    height: 1px;
+    width: 100%;
+    z-index: -1;
+    background: linear-gradient(-45deg, rgb(190, 145, 30), rgb(35, 35, 35));
+    background-size: 400% 400%;
+    animation: headDivShadowAnimation 5s ease infinite;
+}
+@keyframes headDivShadowAnimation {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
 }
 h1#headDivTitle {
-    font-family: consolas;
-    color: white;
-    font-size: calc(100vh * 0.04);
-    cursor: default;
-    margin-left: calc(100vh * 0.03);
     display: flex;
+    margin-left: 5px;
     align-items: center;
+    cursor: default;
+    font-family: consolas;
+    font-size: 35px;
+    color: white;
+}
+a#mainWebsiteLink:link, a#mainWebsiteLink:visited {
+    color: white;
+    text-decoration: none;
 }
 img#headDivImage {
-    width: calc(100vh * 0.05);
-    height: calc(100vh * 0.05);
-    margin-left: calc(100vh * 0.025);
-    margin-top: auto;
-    margin-bottom: auto;
+    width: 45px;
+    height: 45px;
+    margin: auto;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 div#mainDiv {
-    margin: 2%;
-    height: calc(100vh - (100vh * 0.06));
-    width: 96%;
-    background-color: rgb(46, 46, 46)
+    margin: 20px;
+    margin-top: 21px;
+    height: calc(100vh - 95px);
+    border-radius: 10px;
+    background-color: rgb(45, 45, 45);
+    background-image: url("mainDivImage.png");
+    background-repeat: repeat-x;
 }
-
+div#sideDiv {
+    width: 225px;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: rgb(50,50,50);
+}
+.line {
+    float: right;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 50%, rgb(50,50,50) 50%),
+                linear-gradient(to bottom, rgb(253, 204, 64), transparent);
+    background-size: 16px 16px, 2px 100%;
+}
 
 
 div#musicPlayerDiv {
@@ -84,33 +120,4 @@ div#playButton {
     width: 100px;
     right: 21px;
     height: 10px;
-}
-
-
-
-div#bgSource {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    padding: 8px;
-}
-div#linkImg {
-    background-image: url("linkIcon.png");
-    background-size: 15px;
-    background-position: center;
-    background-repeat: no-repeat;
-    float: left;
-    width: 17px;
-    height: 17px;
-    margin-right: 6px;
-}
-div#link {
-    color: lightslategray;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    font-weight: 550;
-    font-size: 13px;
-    float: right;
-    cursor: default;
 }
