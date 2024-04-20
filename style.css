@@ -15,7 +15,7 @@ div#headDivShadow {
     height: 1px;
     width: 100%;
     z-index: -1;
-    background: linear-gradient(-45deg, rgb(190, 145, 30), rgb(35, 35, 35));
+    background: linear-gradient(-45deg, rgb(190, 145, 30), rgb(71, 71, 71));
     background-size: 400% 400%;
     animation: headDivShadowAnimation 5s ease infinite;
 }
@@ -64,20 +64,20 @@ div#sideDiv {
     float: right;
     width: 3px;
     height: 100%;
-    background: linear-gradient(to bottom, transparent 50%, rgb(50,50,50) 50%),
+    background: linear-gradient(to bottom, transparent 50%, rgb(50, 50, 50) 50%),
                 linear-gradient(to bottom, rgb(253, 204, 64), transparent);
     background-size: 16px 16px, 2px 100%;
 }
 
 
 div#musicPlayerDiv {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
     border-radius: 8px;
-    position: fixed;
+    position: absolute;
     width: 36px;
     height: 36px;
-    bottom: 48px;
-    left: 10px;
+    bottom: 25px;
+    left: 25px;
 	transition: 500ms linear;
 }
 img#playerIcon {
@@ -86,38 +86,4 @@ img#playerIcon {
     width: 26px;
     height: 26px;
     cursor: pointer;
-}
-h6#beatsArtist {
-    margin: 5px;
-    height: 26px;
-    color: lightslategray;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    text-align: center;
-    font-weight: 550;
-    font-size: 14px;
-    cursor: default;
-}
-div#playButton {
-    width: 20px;
-    height: 20px;
-    background-image: url("playIcon.png");
-    background-size: 20px;
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-}
-.beatsVolume {
-    appearance: slider-vertical;
-    position: absolute;
-    bottom: 2px;
-    right: 5px;
-    width: 10px;
-    height: 92px;
-}
-.beatsTimeline {
-    position: absolute;
-    bottom: 5px;
-    width: 100px;
-    right: 21px;
-    height: 10px;
 }
