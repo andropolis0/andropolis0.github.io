@@ -27,7 +27,7 @@ function expandPlayer() {
         else { clearInterval(fadein); expcoll = 0;}
     }, 50);
 
-    document.getElementById('musicPlayerDiv').style.width="237px";
+    document.getElementById('musicPlayerDiv').style.width="233px";
     document.getElementById('musicPlayerDiv').style.height="100px";
 }
 function collapsePlayer() {
@@ -41,7 +41,7 @@ function collapsePlayer() {
     document.getElementById('musicPlayerDiv').style.height="36px";
 }
 
-
+//make hight only two rows
 
 const timeline = document.querySelector('.timeline');
 
