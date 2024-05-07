@@ -1,10 +1,75 @@
 const beats = new Audio("massobeats-honey_jam.mp3");
-let expcoll = 1; //1 = expand, 0 = collapse
+      beats.volume = 0;
+let expcoll = true; //1 = expand, 0 = collapse
+
+var mpStyle; //Music-player's style
+var timeline;
+var ptStyle; //Player-title's style
+document.addEventListener('DOMContentLoaded', () => {
+    mpStyle = document.getElementById('music-player').style;
+    timeline = document.getElementById('timeline');
+    ptStyle = document.getElementById('player-title').style;
+});
 
 function player() {
     if(expcoll) expandPlayer();
     else collapsePlayer();
 }
+function expandPlayer() {
+    beats.play();
+    let vol = beats.volume * 100;
+    let fadein = setInterval(() => {
+        if (vol < 100) { vol += 10; beats.volume = vol / 100; }
+        else { clearInterval(fadein); }
+    }, 50);
+
+    mpStyle.width = "233px";
+    mpStyle.height = "72px";
+
+    ptStyle.opacity = 1;
+
+    timeline.style.opacity = 1;
+    setTimeout(() => { expcoll = false; }, 500);
+}
+function collapsePlayer() {
+    let vol = beats.volume*100;
+    let fadeout = setInterval(() => {
+        if (vol > 0) { vol -= 10; beats.volume = vol / 100; }
+        else { clearInterval(fadeout); beats.pause(); beats.currentTime = 0; }
+    }, 50);
+
+    mpStyle.width = "36px";
+    mpStyle.height = "36px";
+
+    ptStyle.opacity = 0;
+
+    timeline.style.opacity = 0;
+    setTimeout(() => { expcoll = true; }, 500);
+}
+
+
+
+
+/*
+
+design the ui first
+
+const timeline = document.querySelector('.timeline');
+
+function changeTimelinePosition () {
+    const percentagePosition = (100*beats.currentTime) / beats.duration;
+    timeline.style.backgroundSize = `${percentagePosition}% 100%`;
+    timeline.value = percentagePosition;
+  }
+  
+  beats.ontimeupdate = changeTimelinePosition;
+function changeSeek () {
+    const time = (timeline.value * beats.duration) / 100;
+    beats.currentTime = time;
+}
+
+timeline.addEventListener('change', changeSeek);
+
 
 beats.addEventListener("timeupdate", updateCurrentTime);
 let beatsPrevSeconds = 0;
@@ -18,43 +83,4 @@ function updateCurrentTime() {
         console.log(min + ":" + sec);
     } //Ended here// outputs right, but the next issue is line 30 in html
 }
-
-function expandPlayer() {
-    beats.play();
-    let vol = beats.volume*100;
-    let fadein = setInterval( function() {
-        if (vol < 100) { vol += 10; beats.volume = vol / 100; }
-        else { clearInterval(fadein); expcoll = 0;}
-    }, 50);
-
-    document.getElementById('musicPlayerDiv').style.width="233px";
-    document.getElementById('musicPlayerDiv').style.height="100px";
-}
-function collapsePlayer() {
-    let vol = beats.volume*100;
-    let fadeout = setInterval( function() {
-        if (vol > 0) { vol -= 10; beats.volume = vol / 100; }
-        else { clearInterval(fadeout); beats.pause(); expcoll = 1;}
-    }, 50);
-
-    document.getElementById('musicPlayerDiv').style.width="36px";
-    document.getElementById('musicPlayerDiv').style.height="36px";
-}
-
-//make hight only two rows
-
-const timeline = document.querySelector('.timeline');
-
-function changeTimelinePosition () {
-    const percentagePosition = (100*audio.currentTime) / audio.duration;
-    timeline.style.backgroundSize = `${percentagePosition}% 100%`;
-    timeline.value = percentagePosition;
-  }
-  
-  audio.ontimeupdate = changeTimelinePosition;
-function changeSeek () {
-    const time = (timeline.value * audio.duration) / 100;
-    audio.currentTime = time;
-}
-
-timeline.addEventListener('change', changeSeek);
+*/

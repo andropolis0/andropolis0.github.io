@@ -30,6 +30,24 @@ h1#title {
     font-size: 35px;
     color: white;
 }
+div#music-player {
+    width: 36px;
+    height: 36px;
+    bottom: 10px;
+    left: 10px;
+    position: absolute;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: 500ms linear;
+}
+img#player-icon {
+    float: left;
+    margin: 5px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+}
 div#content-border {
     z-index: -1;
     width: calc(100vw - 255px - 20px);
@@ -57,21 +75,88 @@ div#content {
 
 
 
-
-div#musicPlayerDiv {
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
+img#play-icon {
+    top: 41px;
+    left: 5px;
     position: absolute;
-    width: 36px;
-    height: 36px;
-    bottom: 10px;
-    left: 10px;
-	transition: 500ms linear;
-}
-img#playerIcon {
-    float: left;
-    margin: 5px;
     width: 26px;
     height: 26px;
     cursor: pointer;
+}
+
+
+input#timeline {
+    margin: 5px;
+    margin-left: 36px;
+    appearance: none;
+    width: 177px;
+    height: 26px;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: 500ms linear;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+input#timeline::-webkit-slider-thumb {
+    appearance: none;
+    width: 26px;
+    height: 26px;
+    background: white;
+    cursor: pointer;
+}
+
+
+div#player-title {
+    transition: 500ms linear;
+    width: 177px;
+    height: 26px;
+    background-color: rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    border-radius: 5px;
+    position:absolute;
+    top: 5px;
+    left: 36px;
+}
+p#titleAnimated {
+    margin: 0px;
+    margin-top: 5px;
+    width: 212px;
+    display: inline-block;
+    animation: scroll-text 10s linear infinite;
+    font-family: 'Courier New';
+    font-size: 16px;
+    font-weight: 550;
+    color: white;
+}
+@keyframes scroll-text {
+    from { transform: translateX(177px); }
+    to { transform: translateX(-100%); }
+}
+
+
+
+
+
+
+
+
+input[type=range].range {
+    width: 62px;
+    appearance: none;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 0;
+    transform: rotate(-90deg);
+    border-radius: 5px;
+    left: 190px;
+    bottom: 29px;
+    position: absolute;
+}
+
+input[type=range].range::-webkit-slider-thumb {
+    cursor: pointer;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 5px;
 }

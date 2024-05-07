@@ -13,28 +13,23 @@
 			<h1 id="title">Andropolis</h1>
 			
 			<!--ELEMENTS HERE-->
+			<!--add github icon that leads to github-->
+			<!--current: beats player-->
 
-			<div id="musicPlayerDiv">
-				<img alt id="playerIcon" src="beatsIcon.png" onclick="player()">
+			<div id="music-player">
+				<img alt id="player-icon" src="beatsIcon.png" onclick="player()">
+				<div id="player-title">
+					<p id="titleAnimated">Massobeats - Honey Jam</p>
+				</div>
+
+				<input class="range" type="range" min="0" max="100" step="1" value="50">
+
+				<input type="range" min="0" max="100" step="1" value="0" id="timeline">
+
+				<img alt id="play-icon" src="playIcon.png">
 			</div>
 		</div>
 		<div id="content-border"></div>
 		<div id="content"></div>
 	</body>
 </html>
-
-<!--					
-				musicPlayerDiv still collapses too fast the first time
-				<h6 id="beatsArtist">Massobeats</h6>
-				<div id="playButton"></div>
-				<input type="range" class="beatsVolume" max="100" value="50">
-				<input type="range" class="beatsTimeline" max="100" value="0">
-				add music file with the yiff lofi also make
-					it just an icon and when pressed make it smoothly expand
-					put the player inside the side div and expand there
-
-				add github icon that leads to github
-
-					
-}
--->
