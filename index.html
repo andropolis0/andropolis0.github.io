@@ -12,22 +12,17 @@
 			<img id="logo" src="logo.png">
 			<h1 id="title">Andropolis</h1>
 			
-			<!--ELEMENTS HERE-->
-			<!--add github icon that leads to github-->
-			<!--current: beats player-->
+			<ul id="stuff">
+				<li>Projects</li>
+				<li class="sub-li">CMD TicTacToe</li>
+				<li>Upcoming</li>
+				<li class="sub-li">Libet's Equinox</li>
+				<li>Music</li>
+				<li class="sub-li">The Caretaker</li>
+				<li class="sub-li">Jack Stauber</li>
+			</ul>
 
-			<div id="music-player">
-				<img alt id="player-icon" src="beatsIcon.png" onclick="player()">
-				<div id="player-title">
-					<p id="titleAnimated">Massobeats - Honey Jam</p>
-				</div>
-
-				<input class="range" type="range" min="0" max="100" step="1" value="50">
-
-				<input type="range" min="0" max="100" step="1" value="0" id="timeline">
-
-				<img alt id="play-icon" src="playIcon.png">
-			</div>
+			<img alt src="github.png" id="github" onmouseenter="gtenter()" onmouseleave="gtleave()" onclick="gtredirect()">
 		</div>
 		<div id="content-border"></div>
 		<div id="content"></div>
