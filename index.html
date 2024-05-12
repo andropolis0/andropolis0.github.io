@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang>
 	<head>
+		<meta charset="UTF-8">
 		<link rel="stylesheet" href="style.css">
 		<link rel="icon" href="icon.png">
 		<script src="app.js"></script>
@@ -8,9 +9,12 @@
 	</head>
 	<body>
 		<div id="sidebar">
-			<div id="sidebar-border"></div>
+			<div id="sidebar-border" style="float: left;"></div>
+			<div id="sidebar-border" style="float: right;"></div>
 			<img id="logo" src="logo.png">
 			<h1 id="title">Andropolis</h1>
+
+			<hr id="sidebar-seperator">
 			
 			<ul id="stuff">
 				<li>Projects</li>
@@ -24,7 +28,9 @@
 
 			<img alt src="github.png" id="github" onmouseenter="gtenter()" onmouseleave="gtleave()" onclick="gtredirect()">
 		</div>
-		<div id="content-border"></div>
-		<div id="content"></div>
+
+		<canvas id="canvas" style="background: transparent;"></canvas>
+		<script src="script.js"></script>
+
 	</body>
 </html>
