@@ -4,10 +4,7 @@ var canvas = document.getElementById("canvas"),
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-var stars = [], FPS = 60, x = 100, mouse = {
-      x: 0,
-      y: 0
-    };
+var stars = [], FPS = 60, x = ((window.innerWidth * window.innerHeight) / 20000);
 
 for (var i = 0; i < x; i++) {
   stars.push({
@@ -18,16 +15,15 @@ for (var i = 0; i < x; i++) {
     vy: Math.floor(Math.random() * 50) - 25
   });
 }
-
 function draw() {
-  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   
   ctx.globalCompositeOperation = "lighter";
   
   for (var i = 0, x = stars.length; i < x; i++) {
     var s = stars[i];
   
-    ctx.fillStyle = "#fff";
+    ctx.fillStyle = "white";
     ctx.beginPath();
     ctx.arc(s.x, s.y, s.radius, 0, 2 * Math.PI);
     ctx.fill();
@@ -38,15 +34,20 @@ function draw() {
   ctx.beginPath();
   for (var i = 0, x = stars.length; i < x; i++) {
     var starI = stars[i];
-    ctx.moveTo(starI.x,starI.y); 
-    if(distance(mouse, starI) < 150) ctx.lineTo(mouse.x, mouse.y);
+    ctx.moveTo(starI.x,starI.y);
     for (var j = 0, x = stars.length; j < x; j++) {
         var starII = stars[j];
         if(distance(starI, starII) < 150) { ctx.lineTo(starII.x,starII.y); }
     }
   }
   ctx.lineWidth = 0.05;
-  ctx.strokeStyle = 'white';
+
+  var gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    gradient.addColorStop(0, '#4158D0');
+    gradient.addColorStop(0.5, '#C850C0');
+    gradient.addColorStop(1, '#CFA42B');
+    
+  ctx.strokeStyle = gradient;
   ctx.stroke();
 }
 
@@ -74,11 +75,6 @@ function update() {
     if (s.y < 0 || s.y > canvas.height) s.vy = -s.vy;
   }
 }
-
-canvas.addEventListener('mousemove', function(e){
-  mouse.x = e.clientX;
-  mouse.y = e.clientY;
-});
 
 function tick() {
   draw();

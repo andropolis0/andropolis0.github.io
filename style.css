@@ -1,6 +1,36 @@
+/*
+    Rule:
+    - Width
+    - Height
+    - Aboslute position
+    - Position
+    - Display
+    - Margin
+    - Padding
+    - Inner aspects
+        - Opacity
+        - Cursor
+        - Border
+        - Background
+        - Overflow
+        - Webkit properties
+        - Text
+            - Color
+            - Alignment
+            - Font family
+            - Font size
+    - Transition
+
+    (margin: top, right, bottom, left)
+*/
+
+* {
+    font-family: consolas;
+    color: white;
+}
 body {
     margin: 0;
-    background: rgb(40, 40, 40) url("hexagradient.png") repeat-x;
+    background: rgb(40, 40, 40);
     overflow: hidden;
 }
 div#sidebar {
@@ -9,69 +39,252 @@ div#sidebar {
     position: fixed;
     background-color: rgb(50,50,50);
 }
+.cool-gradient {
+    background: linear-gradient(to top, #4158D0, #C850C0, rgb(207, 164, 43), transparent);
+    background-attachment: fixed;
+}
 div#sidebar-border {
     width: 2px;
     height: 100%;
-    background: linear-gradient(to top, rgb(207, 164, 43), transparent);
 }
 img#logo {
     width: 232px;
     height: 232px;
-    margin: 10px;
-    margin-top: 35px;
+    margin: 35px 10px 10px 10px;
+    -webkit-user-drag: none;
+    user-select: none;
 }
 h1#title {
-    text-align: center;
     margin-top: -25px;
     cursor: default;
-    font-family: consolas;
-    font-size: 35px;
-    color: white;
     user-select: none;
+    text-align: center;
+    font-size: 35px;
 }
 hr#sidebar-seperator {
     width: 80%;
-    border: 1px solid rgba(207, 164, 43, 0.5);
+    height: 2px;
+    border: none;
 }
 img#github {
     width: 100px;
     bottom: 10px;
+    left: 50%;
     position: absolute;
     display: block;
-    left: 50%;
     margin-left: -50px;
     opacity: 0.5;
-    transition: 75ms linear;
     cursor: pointer;
-}
-ul#stuff {
+    -webkit-user-drag: none;
     user-select: none;
-    margin-top: 40px;
-    list-style-type: none;
-    font-family: consolas;
-    font-size: 20px;
-    color: white;
-    padding: 0;
+    filter: blur(0);
+    content: url("github.png");
+    transition: 0.2s ease-in-out;
 }
-li::after {
-    content: "@";
+img#github:hover {
+    opacity: 1;
+}
+ul#navigator {
+    margin: 40px 0px 0px 20px;
+    padding: 0;
+    user-select: none;
+    list-style-type: none;
+    font-size: 20px;
+}
+.nav-title {
+    margin-top: 20px;
+}
+.nav-title::after {
     right: 22px;
     position: absolute;
     cursor: pointer;
+    content: "@";
 }
-li {
-    margin-left: 20px;
-    margin-top: 20px;
-}
-.sub-li {
-    margin-left: 30px;
-    margin-top: 5px;
+.nav-link {
+    margin: 5px 0px 0px 10px;
+    opacity: 0.80;
+    cursor: pointer;
     font-size: 15px;
-    color: rgb(220, 220, 220);
+    filter: blur(0);
+    transition: 0.1s ease-in-out;
 }
-.sub-li::after {
-    content: "#";
+.nav-link:hover {
+    opacity: 1;
+}
+.nav-link::after {
     right: 23px;
     position: absolute;
+    content: "#";
+}
+div#main {
+    width: calc(100vw - 296px);
+    height: calc(100vh - 40px);
+    position: fixed;
+    margin-left: 256px;
+    padding: 20px;
+    overflow-y: scroll;
+}
+div#main::-webkit-scrollbar {
+    display: none;
+}
+div#hexagradient {
+    width: calc(100% + 40px);
+    height: 200px;
+    position: absolute;
+    margin-left: -20px;
+    background: url("hexagradient.png") repeat-x;
+    z-index: -1;
+}
+.top {
+    margin-top: -20px;
+}
+.bottom {
+    margin-top: -180px;
+    transform: scaleY(-1);
+}
+div#content {
+    width: 100%;
+    display: inline-block;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+div#banner {
+    height: 500px;
+    border-radius: 5px;
+}
+div#banner::before, div#banner::after {
+    height: 500px;
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    border-radius: 5px;
+    background: url("banner.png") center / cover no-repeat;
+    content: "";
+    mask-size: 200px;
+    image-rendering: pixelated;
+}
+div#banner::before {
+    mask-image: url("pattern.png"), linear-gradient(0deg, transparent 10%, rgba(0,0,0,1) 40%);
+    mask-composite: intersect;
+}
+div#banner::after {
+    mask-image: url("patternInvert.png"), linear-gradient(0deg, rgba(0,0,0,1) 0%, transparent 40%);
+    mask-composite: subtract;
+}
+div#banner-src {
+    width: 150px;
+    height: 25px;
+    top: 30px;
+    left: 30px;
+    position: absolute;
+    display: flex;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.25);
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 16px;
+    align-items: center;
+    user-select: none;
+    transition: 0.2s ease-in-out;
+}
+div#link {
+    width: 15px;
+    height: 15px;
+    margin: 5px;
+    margin-right: 7px;
+    opacity: 0.4;
+    background-image: url("link.png");
+    background-size: cover;
+    float: left;
+}
+div#banner-src:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+
+
+/*new elements here (everyting above is finished)*/
+.content-segment {
+    font-size: 35px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.1);
+    line-height: 46px;
+}
+
+.content-title {
+    font-size: 27px;
+    margin-left: 40px;
+    margin-top: -10px;
+}
+.content-title::after {
+    right: 43px;
+    position: absolute;
+    content: "#";
     cursor: pointer;
 }
+
+
+.content-body {
+    margin-left: 60px;
+    margin-right: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-date {
+    background-color: rgb(50, 50, 50);
+    margin-bottom: 5px;
+    padding: 2px 7px 2px 7px;
+    width: fit-content;
+}
+
+
+p {
+    text-indent: 30px;
+    margin-top: -5px;
+}
+
+div#content-entry {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*
+div#screen1 {
+    background-image: url("/content/CMD-Tic-Tac-Toe/screen1.png");
+}
+div#guide1 {
+    margin-top: 160px;
+    background-image: url("/content/CMD-Tic-Tac-Toe/guide1.png");
+}
+div#guide2 {
+    margin-top: 25px;
+    background-image: url("/content/CMD-Tic-Tac-Toe/guide2.png");
+}
+div#gamemodes {
+    margin-top: 25px;
+    background-image: url("/content/CMD-Tic-Tac-Toe/gamemodes.png");
+}
+div#pvc1 {
+    margin-top: 25px;
+    background-image: url("/content/CMD-Tic-Tac-Toe/pvc1.png");
+}
+
+
+
+
+
+div#image-collum {
+    width: 232px;
+    float: right;
+    margin-left: 25px;
+}
+div#image-collum > div {
+    border-radius: 5px;
+    width: 232px;
+    height: 158px;
+    float: left;
+}*/

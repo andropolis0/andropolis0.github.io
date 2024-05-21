@@ -4,33 +4,128 @@
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="style.css">
 		<link rel="icon" href="icon.png">
-		<script src="app.js"></script>
 		<title>Andropolis</title>
 	</head>
 	<body>
 		<div id="sidebar">
-			<div id="sidebar-border" style="float: left;"></div>
-			<div id="sidebar-border" style="float: right;"></div>
+			<div class="cool-gradient" id="sidebar-border" style="float: left;"></div>
+			<div class="cool-gradient" id="sidebar-border" style="float: right;"></div>
+			
 			<img id="logo" src="logo.png">
 			<h1 id="title">Andropolis</h1>
 
-			<hr id="sidebar-seperator">
+			<hr class="cool-gradient" id="sidebar-seperator">
 			
-			<ul id="stuff">
-				<li>Projects</li>
-				<li class="sub-li">CMD TicTacToe</li>
-				<li>Upcoming</li>
-				<li class="sub-li">Libet's Equinox</li>
-				<li>Music</li>
-				<li class="sub-li">The Caretaker</li>
-				<li class="sub-li">Jack Stauber</li>
+			<ul id="navigator">
+				<li class="nav-title">Projects</li>
+					<li class="nav-link">CMD TicTacToe</li>
+
+				<li class="nav-title">Upcoming</li>
+					<li class="nav-link">Libet's Equinox</li>
+
+				<li class="nav-title">Music</li>
+					<li class="nav-link">The Caretaker</li>
+					<li class="nav-link">Jack Stauber</li>
 			</ul>
 
-			<img alt src="github.png" id="github" onmouseenter="gtenter()" onmouseleave="gtleave()" onclick="gtredirect()">
+			<img id="github" onclick="window.open('https://github.com/andropolis0', '_self')">
 		</div>
 
-		<canvas id="canvas" style="background: transparent;"></canvas>
-		<script src="script.js"></script>
+		<div id="main">
+			<div id="hexagradient" class="top"></div>
+			<div id="content">
+				<div id="banner"></div>
+				<div id="banner-src" onclick="window.open('https://wallpapercave.com/w/wp10488774', '_self')">
+					<div id="link"></div>WallpaperCave
+				</div>
 
+				<h1 class="content-segment">Projects</h1>
+					<h2 class="content-title">CMD TicTacToe</h2>
+						<div class="content-body">
+							<div class="content-date">Created: 27.11.2023</div>
+							<div class="content-date">Published: 8.2.2024</div>
+
+							<div id="content-entry">
+								<h2>Introduction</h2>
+
+								<p>
+									I got the idea for a Command Line Interface (CLI) Tic Tac Toe game in late 2023. I finally decided to start working on it after about a month. 
+									The game itself is made entirely in C++, because that was the only programming language I knew at the time. Because I was just a beginner 
+									programmer then, there may still be some bugs in it, but from my testing I haven't found any. 
+								</p>
+								<p>
+									When I started making it I immediatly had to make a decision - are it's screens going to be animated or not. I came to the conclusion that it 
+									might as well have them animated, since it's source code would mostly be logic otherwise. Now, the game does feel more lively, but that came at 
+									the cost of hours of struggling and eventually me losing motivation and stopping progress for a bit. But after some time I finally got back to 
+									it and finished it.
+								</p>
+								<p>
+									Now that we got the "origins" out of the way, we can start talking about the actual gameplay. Upon starting the program you immediatly get a 
+									little animation to show the first screen. On it you can choose either START or GUIDE.
+								</p>
+							</div>
+
+							<div id="content-entry">
+								<h2>Guide</h2>
+
+								<p>
+									If you pick guide, an animation will be played that neatly hides the first screen. Then you will be taken to the first page of the guide that 
+									introduces you to the controls of the game, those being the controls that you use to move around the UI, although I did forget to add one more 
+									control, and that is the R key. 
+								</p>
+								<p>
+									When playing the actual game you can enter the letter R which will make the game close and take you to the previous screen. I actually probably 
+									didn't forget to include it, but rather, there is no more space to even put it in. Ok, now back to the guide. If you decide to choose the >> in 
+									the top right corner you will be taken to the second page, which explains the positions in the actual game. I could have gone with just numbering 
+									the spaces 1-9 but I think that way it looks more fun.
+								</p>
+								<p>
+									Now to exit the guide you select the << arrows, then when you are on the first page, you just select Return.
+								</p>
+							</div>
+
+							<div id="content-entry">
+								<h2>Start</h2>
+
+								<p>
+									If you select the START option on the first screen, you will be taken to the Gamemodes screen. There, as the name already implies, you can pick which 
+									of the two gamemodes you want to play. Either PVP (Player VS Player) or PVC (Player VS Computer). That's... all there is to it. Moving on.
+								</p>
+							</div>
+
+							<div id="content-entry">
+								<h2>Player VS Computer (PVC)</h2>
+							</div>
+
+
+							<!--
+							<div id="image-collum">
+								<div id="screen1"></div>
+								<div id="guide1"></div>
+								<div id="guide2"></div>
+								<div id="gamemodes"></div>
+								<div id="pvc1"></div>
+							</div>
+							-->
+						</div>
+
+				<h1 class="content-segment">Upcoming</h1>
+					<h2 class="content-title">Libet's Equinox</h2>
+						<div class="content-body"></div>
+
+				<h1 class="content-segment">Music</h1>
+					<h2 class="content-title">The Caretaker</h2>
+						<div class="content-body"></div>
+					<h2 class="content-title">Jack Stauber</h2>
+						<div class="content-body"></div>
+
+				<!--Site best enjoyed in chrome (1920x1080)-->
+			</div>
+			<div id="hexagradient" class="bottom"></div>
+		</div>
 	</body>
+
+	<canvas id="canvas" style="background: transparent;"></canvas>
+
+	<script src="script.js"></script>
 </html>
