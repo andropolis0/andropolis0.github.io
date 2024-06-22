@@ -117,8 +117,8 @@ ul#navigator {
     content: "#";
 }
 div#main {
-    width: calc(100vw - 296px);
     height: calc(100vh - 40px);
+    display: inline-block;
     position: fixed;
     margin-left: 256px;
     padding: 20px;
@@ -198,59 +198,85 @@ div#link {
     float: left;
 }
 div#banner-src:hover {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(0, 0, 0, 0);
 }
-
-
-
-/*new elements here (everyting above is finished)*/
 .content-segment {
-    font-size: 35px;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.5);
-    background-color: rgba(0, 0, 0, 0.1);
-    line-height: 46px;
-}
+    background-color: rgba(0, 0, 0, 0.07);
 
+    clip-path: polygon(
+        0 0,
+
+        calc(50% - 280px - 20px) 0,
+        calc(50% - 250px - 20px) 100%,
+        calc(50% - 250px) 100%,
+        calc(50% - 280px) 0,
+
+        calc(50% + 280px) 0,
+        calc(50% + 250px) 100%,
+        calc(50% + 250px + 20px) 100%,
+        calc(50% + 280px + 20px) 0,
+
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+}
+.content-segment > div {
+    background: radial-gradient(
+        rgb(207, 164, 43),
+        rgb(200, 80, 192),
+        rgb(65, 88, 208)
+    ) fixed no-repeat;
+    background-size: calc(100vw - 296px) 100%;
+    background-position: 276px 0px;
+    background-clip: text;
+    user-select: none;
+    color: transparent;
+    text-align: center;
+    font-size: 35px;
+}
 .content-title {
-    font-size: 27px;
     margin-left: 40px;
-    margin-top: -10px;
+    font-size: 27px;
 }
 .content-title::after {
     right: 43px;
     position: absolute;
     content: "#";
-    cursor: pointer;
 }
-
-
 .content-body {
     margin-left: 60px;
     margin-right: 60px;
     display: flex;
     flex-direction: column;
 }
-
 .content-date {
-    background-color: rgb(50, 50, 50);
+    width: fit-content;
     margin-bottom: 5px;
     padding: 2px 7px 2px 7px;
-    width: fit-content;
+    background-color: rgb(50, 50, 50);
 }
 
 
+/*new elements here (everyting above is finished)*/
+/*well now its actual content time!*/
+
+
+
+.content-entry {
+    display: inline;
+}
 p {
     text-indent: 30px;
     margin-top: -5px;
 }
 
-div#content-entry {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-}
 
+div#specs {
+    margin: 5px;
+    opacity: 0.1;
+    text-align: center;
+}
 
 /*
 div#screen1 {

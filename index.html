@@ -38,94 +38,114 @@
 				<div id="banner-src" onclick="window.open('https://wallpapercave.com/w/wp10488774', '_self')">
 					<div id="link"></div>WallpaperCave
 				</div>
-
-				<h1 class="content-segment">Projects</h1>
+				
+				<h1 class="content-segment"><div>Projects</div></h1>
 					<h2 class="content-title">CMD TicTacToe</h2>
 						<div class="content-body">
 							<div class="content-date">Created: 27.11.2023</div>
 							<div class="content-date">Published: 8.2.2024</div>
 
-							<div id="content-entry">
+							<div class="content-entry">
 								<h2>Introduction</h2>
 
+								<img style="margin-left: 15px; margin-bottom: 15px; float: right; width: 232px; height: 158px; border-radius: 5px;" src="/content/CMD-Tic-Tac-Toe/screen1.png">
+								
 								<p>
 									I got the idea for a Command Line Interface (CLI) Tic Tac Toe game in late 2023. I finally decided to start working on it after about a month. 
 									The game itself is made entirely in C++, because that was the only programming language I knew at the time. Because I was just a beginner 
-									programmer then, there may still be some bugs in it, but from my testing I haven't found any. 
+									programmer then, there may still be some bugs in it, but from my testing I haven't found any.
 								</p>
 								<p>
-									When I started making it I immediatly had to make a decision - are it's screens going to be animated or not. I came to the conclusion that it 
-									might as well have them animated, since it's source code would mostly be logic otherwise. Now, the game does feel more lively, but that came at 
-									the cost of hours of struggling and eventually me losing motivation and stopping progress for a bit. But after some time I finally got back to 
-									it and finished it.
+									When I started making it I immediatly had to make a decision - are it's screens going to be animated or not. I finally decided that it 
+									might as well have them animated, since it's source code would mostly be logic otherwise. Because of them, the game does feel more lively, 
+									but that came at the cost of hours of struggling and eventually me losing motivation and stopping progress for a few weeks. But after some time 
+									I finally got back to it and finished it.
 								</p>
 								<p>
-									Now that we got the "origins" out of the way, we can start talking about the actual gameplay. Upon starting the program you immediatly get a 
-									little animation to show the first screen. On it you can choose either START or GUIDE.
+									Now, the actual game. The first screen you'll see is the main menu (duh) and on it I've added a button that takes you to the guide, cuz... why not? 
+									The guide briefly explains how to move around the UI and how to choose what place you want in the grid of the actual game.
 								</p>
 							</div>
 
-							<div id="content-entry">
-								<h2>Guide</h2>
-
-								<p>
-									If you pick guide, an animation will be played that neatly hides the first screen. Then you will be taken to the first page of the guide that 
-									introduces you to the controls of the game, those being the controls that you use to move around the UI, although I did forget to add one more 
-									control, and that is the R key. 
-								</p>
-								<p>
-									When playing the actual game you can enter the letter R which will make the game close and take you to the previous screen. I actually probably 
-									didn't forget to include it, but rather, there is no more space to even put it in. Ok, now back to the guide. If you decide to choose the >> in 
-									the top right corner you will be taken to the second page, which explains the positions in the actual game. I could have gone with just numbering 
-									the spaces 1-9 but I think that way it looks more fun.
-								</p>
-								<p>
-									Now to exit the guide you select the << arrows, then when you are on the first page, you just select Return.
-								</p>
-							</div>
-
-							<div id="content-entry">
-								<h2>Start</h2>
-
-								<p>
-									If you select the START option on the first screen, you will be taken to the Gamemodes screen. There, as the name already implies, you can pick which 
-									of the two gamemodes you want to play. Either PVP (Player VS Player) or PVC (Player VS Computer). That's... all there is to it. Moving on.
-								</p>
-							</div>
-
-							<div id="content-entry">
+							<div class="content-entry">
 								<h2>Player VS Computer (PVC)</h2>
+
+								<img style="margin-left: 15px; margin-bottom: 15px; width: 232px; height: 158px; border-radius: 5px; clear: both; float: right;" src="/content/CMD-Tic-Tac-Toe/pvc2.png">
+								<img style="margin-left: 15px; margin-bottom: 15px; width: 552px; height: 206px; border-radius: 5px; clear: both; float: right;" src="/content/CMD-Tic-Tac-Toe/pvcgame.png">
+								
+								<p>
+									The PVC part of the program is made up from 14 screens in total, including the levels, of which are 9. But keep in mind that the difficulty of the 
+									computer you play against inside those levels does not increase, since it's just a number randomizer so it's easy to win if you have at least 7 
+									braincells (if you only have 6 or less...um...too bad).
+								</p>
+
+								<p>
+									When you end a game inside of a level there will be "stars" shown. The amount of them depends on how many moves it took the player to win (if 
+									you lost you getz no start lol). There are 3 starts max you can get on any level. If you won the game in 3 moves you get all 3 stars, if you won 
+									in 4 you get 2 and if you won in 5 moves you only get one. If it somehow took you more than 5 moves to win, you may just be really dumb (no stars 
+									for you!!). In the code of the game, each rank of a star is connected to a level individually, but now as I'm writing this I'm realising that it 
+									would probably just be best to use a 2-dimensional array. Well too bad.
+								</p>
+
+								<p>
+									Now, let's talk about the actual gameplay. On the bottom left side you have a small guide on the positions in the grid. On top of it, in the top 
+									left corner, you have the number of the level you are currently playing and how many stars you have got in it. You input your choice in the bottom 
+									middle part of the screen. Now that may look a bit strange to somebody who has used the Windows CLI to do anything. The reason for that being - you 
+									can't have text after a std::cin argument. 
+								</p>
+									
+								<p>
+									Well i got around that by first outputting all of the UI and then setting the position of the CLI cursor 
+									with SetConsoleCursorPosition(hConsole, coordinates). There's just one problem... if i used std::cin it would offset the bottom right line after it 
+									if the player typed in anything. And that's why I'm not using it, but rather getch(). Getch() is a Windows CLI function that records the pressed keys. 
+									And that is it for Player VS Computer. Moving on.
+								</p>
 							</div>
 
+							<div class="content-entry">
+								<h2>Player VS Player (PVP)</h2>
 
-							<!--
-							<div id="image-collum">
-								<div id="screen1"></div>
-								<div id="guide1"></div>
-								<div id="guide2"></div>
-								<div id="gamemodes"></div>
-								<div id="pvc1"></div>
+								<p>
+									The PVP part is bascially the same as the PVC part. In the top left corner it is displayed who is playing and who's turn it is. In the future, I might 
+									add the possibility to use any character as your character in the game, but for now I'd say it's pretty much done. And... that's all for my Tic Tac Toe 
+									app. Hope you had a good read.
+								</p>
+
+								<img style="margin: auto; width: 552px; height: 206px; border-radius: 5px; margin: auto; display: block;" src="/content/CMD-Tic-Tac-Toe/pvpgame.png">
 							</div>
-							-->
 						</div>
 
-				<h1 class="content-segment">Upcoming</h1>
+				<h1 class="content-segment"><div>Upcoming</div></h1>
 					<h2 class="content-title">Libet's Equinox</h2>
-						<div class="content-body"></div>
+						<div class="content-body">
+							<div class="content-date">Created: 15.2.2024</div>
+							<div class="content-date">Published: NOT YET</div>
 
-				<h1 class="content-segment">Music</h1>
+							<div class="content-entry">
+								<h2>Introduction</h2>
+
+								<p>
+									It's basically an MP3 player themed around the music made by The Caretaker. I still have a lot of work to do so, it wont be released anytime soon 
+									(sorry).
+								</p>
+							</div>
+						</div>
+
+				<h1 class="content-segment"><div>Music</div></h1>
 					<h2 class="content-title">The Caretaker</h2>
 						<div class="content-body"></div>
 					<h2 class="content-title">Jack Stauber</h2>
 						<div class="content-body"></div>
 
-				<!--Site best enjoyed in chrome (1920x1080)-->
+
+
+				<div id="specs">Site best enjoyed in Chrome (1920x1080)
+				</div>
 			</div>
 			<div id="hexagradient" class="bottom"></div>
 		</div>
 	</body>
 
 	<canvas id="canvas" style="background: transparent;"></canvas>
-
 	<script src="script.js"></script>
 </html>
