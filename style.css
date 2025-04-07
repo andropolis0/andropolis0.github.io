@@ -28,25 +28,30 @@
     font-family: consolas;
     color: white;
 }
+
 body {
     margin: 0;
     background: rgb(40, 40, 40);
     overflow: hidden;
 }
+
 div#sidebar {
     width: 256px;
     height: 100vh;
     position: fixed;
     background-color: rgb(50,50,50);
 }
+
 .cool-gradient {
     background: linear-gradient(to top, #4158D0, #C850C0, rgb(207, 164, 43), transparent);
     background-attachment: fixed;
 }
+
 div#sidebar-border {
     width: 2px;
     height: 100%;
 }
+
 img#logo {
     width: 232px;
     height: 232px;
@@ -54,6 +59,7 @@ img#logo {
     -webkit-user-drag: none;
     user-select: none;
 }
+
 h1#title {
     margin-top: -25px;
     cursor: default;
@@ -61,11 +67,13 @@ h1#title {
     text-align: center;
     font-size: 35px;
 }
+
 hr#sidebar-seperator {
     width: 80%;
     height: 2px;
     border: none;
 }
+
 img#github {
     width: 100px;
     bottom: 10px;
@@ -81,9 +89,11 @@ img#github {
     content: url("img/github.png");
     transition: 0.2s ease-in-out;
 }
+
 img#github:hover {
     opacity: 1;
 }
+
 ul#navigator {
     margin: 40px 0px 0px 20px;
     padding: 0;
@@ -91,15 +101,18 @@ ul#navigator {
     list-style-type: none;
     font-size: 20px;
 }
+
 .nav-title {
     margin-top: 20px;
 }
+
 .nav-title::after {
     right: 22px;
     position: absolute;
     cursor: pointer;
     content: "@";
 }
+
 .nav-link {
     margin: 5px 0px 0px 10px;
     opacity: 0.80;
@@ -108,14 +121,17 @@ ul#navigator {
     filter: blur(0);
     transition: 0.1s ease-in-out;
 }
+
 .nav-link:hover {
     opacity: 1;
 }
+
 .nav-link::after {
     right: 23px;
     position: absolute;
     content: "#";
 }
+
 div#main {
     height: calc(100vh - 40px);
     display: inline-block;
@@ -125,9 +141,11 @@ div#main {
     overflow-y: scroll;
     scrollbar-width: none;
 }
+
 div#main::-webkit-scrollbar {
     display: none;
 }
+
 div#hexagradient {
     width: calc(100% + 40px);
     height: 200px;
@@ -136,44 +154,52 @@ div#hexagradient {
     background: url("img/hexagradient.png") repeat-x;
     z-index: -1;
 }
+
 .top {
     top: -50px;
 }
+
 .bottom {
     bottom: -50px;
     transform: scaleY(-1);
 }
+
 div#content {
     width: 100%;
     display: inline-block;
     border-radius: 5px;
     background-color: rgba(0, 0, 0, 0.25);
 }
+
 div#banner {
     height: 500px;
     border-radius: 5px;
 }
+
 div#banner::before, div#banner::after {
     height: 500px;
     position: absolute;
     left: 20px;
     right: 20px;
     border-radius: 5px;
-    background: url("img/banner.png") center / cover no-repeat;
+    background: url("img/lakeside.png") center / cover no-repeat;
     content: "";
     mask-size: 200px;
     image-rendering: pixelated;
 }
+
 div#banner::before {
     mask-image: url("img/pattern.png"), linear-gradient(0deg, transparent 10%, rgba(0,0,0,1) 40%);
     mask-composite: intersect;
 }
+
 div#banner::after {
     mask-image: url("img/patternInvert.png"), linear-gradient(0deg, rgba(0,0,0,1) 0%, transparent 40%);
     mask-composite: subtract;
 }
+
 div#banner-src {
-    width: 150px;
+    width: 132px;
     height: 25px;
     top: 30px;
     left: 30px;
@@ -188,6 +214,7 @@ div#banner-src {
     user-select: none;
     transition: 0.2s ease-in-out;
 }
+
 div#link {
     width: 15px;
     height: 15px;
@@ -198,9 +225,11 @@ div#link {
     background-size: cover;
     float: left;
 }
+
 div#banner-src:hover {
     background-color: rgba(0, 0, 0, 0);
 }
+
 .content-segment {
     background-color: rgba(0, 0, 0, 0.07);
 
@@ -222,6 +251,7 @@ div#banner-src:hover {
         0 100%
     );
 }
+
 .content-segment > div {
     background: radial-gradient(
         rgb(207, 164, 43),
@@ -237,6 +267,7 @@ div#banner-src:hover {
     text-align: center;
     font-size: 45px;
 }
+
 @-moz-document url-prefix() {
     .content-segment > div {
         background: linear-gradient(
@@ -248,21 +279,25 @@ div#banner-src:hover {
         background-clip: text;
     }
 }
+
 .content-title {
     margin-left: 40px;
     font-size: 27px;
 }
+
 .content-title::after {
     right: 43px;
     position: absolute;
     content: "#";
 }
+
 .content-body {
     margin-left: 60px;
     margin-right: 60px;
     display: flex;
     flex-direction: column;
 }
+
 .content-date {
     width: fit-content;
     margin-bottom: 5px;
@@ -279,6 +314,7 @@ div#banner-src:hover {
 .content-entry {
     display: inline;
 }
+
 p {
     text-indent: 30px;
     margin-top: -5px;
